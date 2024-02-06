@@ -1,94 +1,42 @@
-[![Twitter Follow](https://img.shields.io/twitter/follow/AbanteAi?style=social)](https://twitter.com/AbanteAi)
-[![Discord Follow](https://dcbadge.vercel.app/api/server/XbPdxAMJte?style=flat)](https://discord.gg/zbvd9qx9Pb)
-[![Documentation Status](https://readthedocs.org/projects/mentat-ai/badge/?version=latest)](https://docs.mentat.ai/en/latest/?badge=latest)
-[![Stable Version](https://img.shields.io/pypi/v/mentat?color=blue)](https://pypi.org/project/mentat/)
-[![License](https://img.shields.io/pypi/l/mentat.svg)](https://github.com/AbanteAI/mentat/blob/main/LICENSE)
+[![Twitter Follow](https://img.shields.io/twitter/follow/AmigoAI?style=social)](https://twitter.com/AmigoAI_)
+[![License](https://img.shields.io/pypi/l/amigo.svg)](https://github.com/AmigoAppAI/amigo-cli/blob/main/LICENSE)
 
-# 🧙‍♂️ Mentat ⚡
-
-> _It is by will alone I set my mind in motion_
-> 
-> The Mentat Mantra
-
-The Mentats of Dune combine human creativity with computer-like processing - and now you can too.
+# <img src="https://github.com/AmigoAppAI/amigo-cli/assets/1038572/d8651b83-6d4d-4334-9dd5-9a0fc5088447" width="25" height="25"> Amigo Terminal Assistant
 
 ---
 
-Mentat is the AI tool that assists you with any coding task, right from your command line.
+Amigo is a terminal based copilot to help you work with large projects from your terminal.
 
-Unlike Copilot, Mentat coordinates edits across multiple locations and files. And unlike ChatGPT, Mentat already has the context of your project - no copy and pasting required!
+With Amigo it is _easy_ to coordinate changes across many files, in some cases implementing entire features from a single prompt.
 
-Want help understanding a new codebase? Need to add a new feature? Refactor existing code? Mentat can do it!
+Amigo is incredibly efficient by leveraging state of the art techniques to use only the most relevent snippets of files as part of its prompt. Saving you money!
 
-# 🍿 Example Videos (🔊 on!)
-
-https://github.com/AbanteAI/mentat/assets/128252497/35b027a9-d639-452c-a53c-ef019a645719
-
-See more videos on [Twitter](https://twitter.com/bio_bootloader/status/1683906735248125955) or YouTube:
-- [Intro (2 min - same video as above)](https://www.youtube.com/watch?v=lODjaWclwpY)
-- [Explaining and editing Llama2.c (3 min)](https://www.youtube.com/watch?v=qSyTWMFOjPs)
-- [More Mentat features (4 min)](https://www.youtube.com/watch?v=YJLDIqq8k2A)
+Want help understanding a new codebase? Need to add a new feature? Refactor existing code? Amigo can do it!
 
 # ⚙️ Setup
 
-[Installation and Setup Demonstration Video](https://www.youtube.com/watch?v=bVJP8hY8uRM)
-
 ## Install
 
-It is recommended you install this package in a virtualenv:
+To install Amigo you will need Python 3.10 or later installed. Then it's easy!
 
 ```
-# Python 3.10 or higher is required
-python3 -m venv .venv
-source .venv/bin/activate
+python3 -m venv .venv && source .venv/bin/activate # Optional
+python3 -m pip install git+https://github.com/AmigoAppAI/amigo-cli.git
 ```
-
-Note that you'll have to have activated the virtual environment to run mentat if you install it there.
-
-There are then 3 install methods. The first two will just let you run it:
-- PyPI: `python -m pip install mentat`
-- Github: `python -m pip install git+https://github.com/AbanteAI/mentat.git`
-
-The third option is useful if you'd also like to modify Mentat's code, as well as run it:
-
-```
-git clone https://github.com/AbanteAI/mentat.git
-cd mentat
-
-# install with pip in editable mode:
-pip install -e .
-```
-
 ### Add your OpenAI API Key
 
-There are a few options to provide Mentat with your OpenAI API key:
+There are a few options to provide Amigo with your OpenAI API key:
 
-1. Create a `.env` file with the line `OPENAI_API_KEY=<your-api-key>` in the directory you plan to run mentat in or in `~/.mentat/.env`
-2. Run `export OPENAI_API_KEY=<your key here>` prior to running Mentat
+1. Create a `.env` file with the line `OPENAI_API_KEY=<your-api-key>` in the directory you plan to run amigo in or in `~/.amigo/.env`
+2. Run `export OPENAI_API_KEY=<your key here>` prior to running Amigo
 3. Place the previous command in your `.bashrc` or `.zshrc` to export your key on every terminal startup
-
-If you want to use a models through Azure, Ollama or other service see [this doc](https://docs.mentat.ai/en/latest/user/alternative_models.html) for details.
 
 # 🚀 Usage
 
-Run Mentat from within your project directory. Mentat uses git, so if your project doesn't already have git set up, run `git init`. Then you can run Mentat with:
+Run Amigo from within your project directory. Amigo uses git, so if your project doesn't already have git set up, run `git init`. Then you can run Amigo with:
 
-`mentat <paths to files or directories>`
+`amigo <paths to files or directories>`
 
-List the files you would like Mentat to read and edit as arguments. Mentat will add each of them to context, so be careful not to exceed the GPT-4 token context limit. To add multiple files at once, you can also provide directories as arguments. When a directory is provided, Mentat will add all the contained files, except for ones ignored in your `.gitignore`. In addition to files and directories, you can use [glob patterns](https://docs.python.org/3/library/glob.html) to add multiple files at once.
+List the files you would like Amigo to read and edit as arguments. Amigo will add each of them to it's vector database. To add multiple files at once, you can also provide directories as arguments. When a directory is provided, Amigo will add all the contained files, except for ones ignored in your `.gitignore`. In addition to files and directories, you can use [glob patterns](https://docs.python.org/3/library/glob.html) to add multiple files at once.
 
-For more information on commands, configuration or using other models see [the documentation](https://docs.mentat.ai/en/latest/user/guides.html).
-
-# 👩‍💻 Roadmap and Contributing
-
-We welcome contributions! To coordinate, make sure to join the Discord server: [![Discord Follow](https://dcbadge.vercel.app/api/server/XbPdxAMJte?style=flat)](https://discord.gg/zbvd9qx9Pb)
-
-The goal for Mentat is to become the best way to write code. Some big improvements coming up are:
-- improved user interface and options (VSCode and other editor integrations, etc)
-- use with LLMs other than GPT-4
-- seamlessly work with codebases much larger than LLM context limits, without requiring users to filter files manually
-- improved edit quality
-
-If this is something you'd like to work on, jump right in! And if you want to join the team to work on this full time, message [@bio_bootloader](https://twitter.com/bio_bootloader) on twitter.
-
-To find something specific to work on, take a look at [open issues](https://github.com/AbanteAI/mentat/issues).
+Enjoy!
