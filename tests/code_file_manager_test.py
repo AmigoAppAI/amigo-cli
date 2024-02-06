@@ -4,8 +4,8 @@ from textwrap import dedent
 
 import pytest
 
-from mentat.parsers.file_edit import FileEdit, Replacement
-from mentat.session import Session
+from amigo.parsers.file_edit import FileEdit, Replacement
+from amigo.session import Session
 
 
 # Make sure we always give posix paths to GPT
@@ -59,7 +59,7 @@ async def test_run_from_subdirectory(
     mock_collect_user_input,
     mock_call_llm_api,
 ):
-    """Run mentat from a subdirectory of the git root"""
+    """Run amigo from a subdirectory of the git root"""
     # Change to the subdirectory
     os.chdir("multifile_calculator")
     mock_collect_user_input.set_stream_messages(
@@ -117,7 +117,7 @@ async def test_run_from_superdirectory(
     mock_collect_user_input,
     mock_call_llm_api,
 ):
-    """Run mentat from outside the git root"""
+    """Run amigo from outside the git root"""
     # Change to the subdirectory
     mock_collect_user_input.set_stream_messages(
         [

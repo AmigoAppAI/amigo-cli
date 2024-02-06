@@ -4,7 +4,7 @@ from textwrap import dedent
 
 import pytest
 
-from mentat.session import Session
+from amigo.session import Session
 from tests.conftest import run_git_command
 
 

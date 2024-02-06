@@ -3,8 +3,8 @@ from textwrap import dedent
 
 import pytest
 
-from mentat.parsers.file_edit import FileEdit, Replacement
-from mentat.revisor.revisor import revise_edit
+from amigo.parsers.file_edit import FileEdit, Replacement
+from amigo.revisor.revisor import revise_edit
 
 
 @pytest.mark.asyncio

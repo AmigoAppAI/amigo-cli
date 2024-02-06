@@ -4,7 +4,7 @@ from pathlib import Path
 
 import fire  # pyright: ignore[reportMissingTypeStubs]
 
-from mentat.utils import create_viewer
+from amigo.utils import create_viewer
 
 
 # Currently will NOT work; because the /conversation command works well, no need to update

@@ -5,7 +5,7 @@ from typing import Optional
 
 import attr
 
-from mentat.transcripts import Transcript
+from amigo.transcripts import Transcript
 
 
 @attr.define

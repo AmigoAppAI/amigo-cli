@@ -3,16 +3,16 @@ from uuid import uuid4
 
 import attr
 
-from mentat.code_feature import get_consolidated_feature_refs
-from mentat.python_client.client import PythonClient
-from mentat.sampler.sample import Sample
-from mentat.sampler.utils import setup_repo
-from mentat.session_context import SESSION_CONTEXT
+from amigo.code_feature import get_consolidated_feature_refs
+from amigo.python_client.client import PythonClient
+from amigo.sampler.sample import Sample
+from amigo.sampler.utils import setup_repo
+from amigo.session_context import SESSION_CONTEXT
 
 
 async def add_context(sample, extra_tokens: int = 5000) -> Sample:
     """Return a duplicate sample with extra (auto-context generated) context."""
-    # Setup mentat CodeContext with included_files
+    # Setup amigo CodeContext with included_files
     repo = setup_repo(
         url=sample.repo,
         commit=sample.merge_base,

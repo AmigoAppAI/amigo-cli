@@ -10,14 +10,14 @@ from typing import Any
 from git import Repo
 
 from benchmarks.arg_parser import common_benchmark_parser
-from mentat.code_context import CodeContext
-from mentat.code_feature import CodeFeature
-from mentat.code_file_manager import CodeFileManager
-from mentat.config import Config
-from mentat.cost_tracker import CostTracker
-from mentat.llm_api_handler import count_tokens, model_context_size
-from mentat.sampler.utils import clone_repo
-from mentat.session_context import SESSION_CONTEXT, SessionContext
+from amigo.code_context import CodeContext
+from amigo.code_feature import CodeFeature
+from amigo.code_file_manager import CodeFileManager
+from amigo.config import Config
+from amigo.cost_tracker import CostTracker
+from amigo.llm_api_handler import count_tokens, model_context_size
+from amigo.sampler.utils import clone_repo
+from amigo.session_context import SESSION_CONTEXT, SessionContext
 
 
 class MockStream:
@@ -92,13 +92,13 @@ async def select_features_for_benchmark(
 
     # The longest context that could have been included to generate expected_edits
     model = config.model
-    mentat_prompt_tokens = count_tokens(parser.get_system_prompt(), model)
+    amigo_prompt_tokens = count_tokens(parser.get_system_prompt(), model)
     expected_edits, expected_edits_tokens = None, 0
     if use_expected:
         expected_edits = benchmark["expected_edits"]
         expected_edits_tokens = count_tokens(expected_edits, model)
     max_context_tokens = (
-        model_context_size(model) - mentat_prompt_tokens - expected_edits_tokens
+        model_context_size(model) - amigo_prompt_tokens - expected_edits_tokens
     )
     # Fill-in available context
     config.auto_context_tokens = 8000

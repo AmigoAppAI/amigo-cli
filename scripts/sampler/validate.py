@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from mentat.errors import SampleError
-from mentat.sampler.utils import apply_diff_to_repo, setup_repo
+from amigo.errors import SampleError
+from amigo.sampler.utils import apply_diff_to_repo, setup_repo
 
 
 async def validate_sample(sample, cwd: Path | str | None = None) -> tuple[bool, str]:

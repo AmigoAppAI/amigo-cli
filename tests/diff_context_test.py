@@ -3,9 +3,9 @@ from pathlib import Path
 
 import pytest
 
-from mentat import Mentat
-from mentat.diff_context import DiffContext
-from mentat.session_context import SESSION_CONTEXT
+from amigo import Amigo
+from amigo.diff_context import DiffContext
+from amigo.session_context import SESSION_CONTEXT
 
 
 def _update_ops(temp_testbed, last_line, commit_message=None):
@@ -186,7 +186,7 @@ async def test_diff_context_end_to_end(temp_testbed, git_history, mock_call_llm_
     abs_path = Path(temp_testbed) / "multifile_calculator" / "operations.py"
 
     mock_call_llm_api.set_streamed_values([""])
-    client = Mentat(cwd=temp_testbed, paths=[], diff="HEAD~2")
+    client = Amigo(cwd=temp_testbed, paths=[], diff="HEAD~2")
     await client.startup()
 
     session_context = SESSION_CONTEXT.get()

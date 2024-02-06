@@ -1,8 +1,8 @@
 import pytest
 
-from mentat.parsers.block_parser import BlockParser
-from mentat.parsers.git_parser import GitParser
-from mentat.parsers.replacement_parser import ReplacementParser
+from amigo.parsers.block_parser import BlockParser
+from amigo.parsers.git_parser import GitParser
+from amigo.parsers.replacement_parser import ReplacementParser
 from scripts.translate_transcript import translate_message
 
 

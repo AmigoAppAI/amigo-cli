@@ -16,21 +16,21 @@ from openai.types.chat.chat_completion import Choice
 from openai.types.chat.chat_completion_chunk import Choice as AsyncChoice
 from openai.types.chat.chat_completion_chunk import ChoiceDelta
 
-from mentat import config
-from mentat.agent_handler import AgentHandler
-from mentat.auto_completer import AutoCompleter
-from mentat.code_context import CodeContext
-from mentat.code_file_manager import CodeFileManager
-from mentat.config import Config, config_file_name
-from mentat.conversation import Conversation
-from mentat.cost_tracker import CostTracker
-from mentat.git_handler import get_git_root_for_path
-from mentat.llm_api_handler import LlmApiHandler
-from mentat.parsers.streaming_printer import StreamingPrinter
-from mentat.sampler.sampler import Sampler
-from mentat.session_context import SESSION_CONTEXT, SessionContext
-from mentat.session_stream import SessionStream, StreamMessage, StreamMessageSource
-from mentat.vision.vision_manager import VisionManager
+from amigo import config
+from amigo.agent_handler import AgentHandler
+from amigo.auto_completer import AutoCompleter
+from amigo.code_context import CodeContext
+from amigo.code_file_manager import CodeFileManager
+from amigo.config import Config, config_file_name
+from amigo.conversation import Conversation
+from amigo.cost_tracker import CostTracker
+from amigo.git_handler import get_git_root_for_path
+from amigo.llm_api_handler import LlmApiHandler
+from amigo.parsers.streaming_printer import StreamingPrinter
+from amigo.sampler.sampler import Sampler
+from amigo.session_context import SESSION_CONTEXT, SessionContext
+from amigo.session_stream import SessionStream, StreamMessage, StreamMessageSource
+from amigo.vision.vision_manager import VisionManager
 
 pytest_plugins = ("pytest_reportlog",)
 
@@ -84,7 +84,7 @@ def get_marks(request):
 def mock_collect_user_input(mocker):
     async_mock = AsyncMock()
 
-    mocker.patch("mentat.session_input._get_input_request", side_effect=async_mock)
+    mocker.patch("amigo.session_input._get_input_request", side_effect=async_mock)
 
     def set_stream_messages(values):
         async_mock.side_effect = [

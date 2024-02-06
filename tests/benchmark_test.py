@@ -4,7 +4,7 @@ import subprocess
 
 import pytest
 
-from mentat.session import Session
+from amigo.session import Session
 
 # These benchmarks use GPT and won't run automatically.
 # Run them with python tests/record_benchmark.py True

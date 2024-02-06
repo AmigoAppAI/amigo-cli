@@ -2,7 +2,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from mentat.vision.vision_manager import ScreenshotException, VisionManager
+from amigo.vision.vision_manager import ScreenshotException, VisionManager
 
 
 @pytest.fixture

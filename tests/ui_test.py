@@ -3,7 +3,7 @@ from unittest.mock import AsyncMock
 
 import pytest
 
-from mentat.terminal.client import TerminalClient
+from amigo.terminal.client import TerminalClient
 
 # These ui-tests won't run automatically
 # To run them, use pytest -s --uitest
@@ -23,8 +23,8 @@ def ui_mock_collect_user_input(
 ):
     async_mock = AsyncMock()
 
-    mocker.patch("mentat.code_edit_feedback.collect_user_input", side_effect=async_mock)
-    mocker.patch("mentat.session_input.collect_user_input", side_effect=async_mock)
+    mocker.patch("amigo.code_edit_feedback.collect_user_input", side_effect=async_mock)
+    mocker.patch("amigo.session_input.collect_user_input", side_effect=async_mock)
 
     async_mock.side_effect = is_test_correct
     return async_mock

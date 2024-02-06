@@ -6,7 +6,7 @@ from unittest.mock import AsyncMock
 import pytest
 from prompt_toolkit import PromptSession
 
-from mentat.terminal.client import TerminalClient
+from amigo.terminal.client import TerminalClient
 
 
 def mock_init(self, *args, **kwargs):

@@ -28,7 +28,7 @@ jobs:
         python -m pip install setuptools wheel twine
     - name: Set Prod conf.ini
       run: |
-        mv mentat/resources/conf/conf-prod.ini mentat/resources/conf/conf.ini
+        mv amigo/resources/conf/conf-prod.ini amigo/resources/conf/conf.ini
     - name: Github Release
       if: ${{ steps.version-number.outputs.match != '' }}
       continue-on-error: true
@@ -54,5 +54,5 @@ jobs:
       uses: dawidd6/action-homebrew-bump-formula@v3
       with:
         token: ${{ secrets.TOKEN_FOR_BREW }}
-        formula: mentat
+        formula: amigo
         tag: v${{ steps.version-number.outputs.group1 }}

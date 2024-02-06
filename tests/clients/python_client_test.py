@@ -3,7 +3,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from mentat.python_client.client import PythonClient
+from amigo.python_client.client import PythonClient
 
 
 @pytest.mark.asyncio
@@ -28,7 +28,7 @@ async def test_editing_file_auto_accept(temp_testbed, mock_call_llm_api):
 
     python_client = PythonClient(cwd=temp_testbed, paths=["."])
     await python_client.startup()
-    await python_client.call_mentat_auto_accept("Conversation")
+    await python_client.call_amigo_auto_accept("Conversation")
     with open(file_name, "r") as f:
         content = f.read()
         expected_content = "# Line 1\n# Line 2"
@@ -37,7 +37,7 @@ async def test_editing_file_auto_accept(temp_testbed, mock_call_llm_api):
 
 
 @pytest.mark.asyncio
-async def test_collects_mentat_response(temp_testbed, mock_call_llm_api):
+async def test_collects_amigo_response(temp_testbed, mock_call_llm_api):
     file_name = "test.py"
     with open(file_name, "w") as f:
         f.write("# Line 1")
@@ -58,8 +58,8 @@ async def test_collects_mentat_response(temp_testbed, mock_call_llm_api):
 
     python_client = PythonClient(cwd=temp_testbed, paths=["."])
     await python_client.startup()
-    response = await python_client.call_mentat("Conversation")
-    response += await python_client.call_mentat("y")
+    response = await python_client.call_amigo("Conversation")
+    response += await python_client.call_amigo("y")
     assert "Conversation" in response
     assert "Apply these changes? 'Y/n/i' or provide feedback." in response
     await python_client.shutdown()
@@ -74,4 +74,4 @@ async def test_graceful_failure_on_session_exit(temp_testbed):
         side_effect=Exception("test")
     )
     with pytest.raises(Exception, match="Session failed"):
-        await python_client.call_mentat("Conversation")
+        await python_client.call_amigo("Conversation")

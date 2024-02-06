@@ -12,10 +12,10 @@ from benchmarks.arg_parser import common_benchmark_parser
 from benchmarks.benchmark_result import BenchmarkResult
 from benchmarks.benchmark_result_summary import BenchmarkResultSummary
 from benchmarks.exercise_runners.exercise_runner_factory import ExerciseRunnerFactory
-from mentat import Mentat
-from mentat.config import Config
-from mentat.sampler.utils import clone_repo
-from mentat.session_context import SESSION_CONTEXT
+from amigo import Amigo
+from amigo.config import Config
+from amigo.sampler.utils import clone_repo
+from amigo.session_context import SESSION_CONTEXT
 
 
 def clone_exercism_repo(refresh_repo, language):
@@ -81,7 +81,7 @@ async def failure_analysis(exercise_runner, language):
 
 async def run_exercise(problem_dir, language="python", max_iterations=2):
     exercise_runner = ExerciseRunnerFactory.create(language, problem_dir)
-    client = Mentat(
+    client = Amigo(
         cwd=Path("."),
         paths=exercise_runner.include_files(),
         exclude_paths=exercise_runner.exclude_files(),
@@ -111,7 +111,7 @@ async def run_exercise(problem_dir, language="python", max_iterations=2):
             if iterations == 0
             else exercise_runner.get_error_message() + prompt_2
         )
-        await client.call_mentat_auto_accept(message)
+        await client.call_amigo_auto_accept(message)
 
         exercise_runner.run_test()
         iterations += 1
@@ -130,7 +130,7 @@ async def run_exercise(problem_dir, language="python", max_iterations=2):
         transcript={"id": problem_dir, "messages": messages},
     )
     if had_error:
-        result.response = "Error while running mentat"
+        result.response = "Error while running amigo"
         result.reason = "error"
     elif not result.passed:
         response, reason = await failure_analysis(exercise_runner, language)

@@ -6,14 +6,14 @@ from unittest.mock import AsyncMock
 
 import pytest
 
-from mentat.code_context import CodeContext
-from mentat.config import Config
-from mentat.errors import ReturnToUser
-from mentat.feature_filters.default_filter import DefaultFilter
-from mentat.git_handler import get_non_gitignored_files
-from mentat.include_files import is_file_text_encoded
-from mentat.interval import Interval
-from mentat.llm_api_handler import count_tokens
+from amigo.code_context import CodeContext
+from amigo.config import Config
+from amigo.errors import ReturnToUser
+from amigo.feature_filters.default_filter import DefaultFilter
+from amigo.git_handler import get_non_gitignored_files
+from amigo.include_files import is_file_text_encoded
+from amigo.interval import Interval
+from amigo.llm_api_handler import count_tokens
 from tests.conftest import run_git_command
 
 

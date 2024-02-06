@@ -1,6 +1,6 @@
 # Benchmarks
 
-In this directory we write benchmarks for Mentat's performance on different tasks.
+In this directory we write benchmarks for Amigo's performance on different tasks.
 
 ## Running Exercism Benchmarks
 
@@ -23,4 +23,4 @@ Warning: If you increase `max_workers` much higher you'll start to get rate limi
 
 ## Making Real World Benchmarks
 
-Real world benchmarks can either be [samples](benchmarks/mentat/sample_15223222005645d08b81f093e51d52fe.json) or [python files](benchmarks/mentat/).
+Real world benchmarks can either be [samples](benchmarks/amigo/sample_15223222005645d08b81f093e51d52fe.json) or [python files](benchmarks/amigo/).

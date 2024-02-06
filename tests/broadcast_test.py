@@ -1,6 +1,6 @@
 import pytest
 
-from mentat.broadcast import Broadcast
+from amigo.broadcast import Broadcast
 
 
 @pytest.mark.asyncio

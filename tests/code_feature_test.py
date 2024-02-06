@@ -1,11 +1,11 @@
 from textwrap import dedent
 
-from mentat.code_feature import (
+from amigo.code_feature import (
     CodeFeature,
     get_consolidated_feature_refs,
     split_file_into_intervals,
 )
-from mentat.interval import Interval
+from amigo.interval import Interval
 
 
 def test_split_file_into_intervals(temp_testbed, mock_session_context):

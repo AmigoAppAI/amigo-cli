@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-from mentat.git_handler import get_git_diff, get_hexsha_active
+from amigo.git_handler import get_git_diff, get_hexsha_active
 
 
 def test_get_git_diff(temp_testbed, mock_session_context):

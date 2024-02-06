@@ -41,7 +41,7 @@ def common_benchmark_parser():
         "--max_iterations",
         default=1,
         type=int,
-        help="Number of times to rerun mentat with error messages",
+        help="Number of times to rerun amigo with error messages",
     )
     parser.add_argument(
         "--max_workers",
@@ -59,7 +59,7 @@ def common_benchmark_parser():
     parser.add_argument(
         "--repo",
         action="store",
-        default="mentat",
+        default="amigo",
         help="For benchmarks that are evaluated against a repo",
     )
     parser.add_argument(

@@ -15,9 +15,9 @@ from finetune import generate_finetune
 from remove_context import remove_context
 from validate import validate_sample
 
-from mentat.llm_api_handler import count_tokens, prompt_tokens
-from mentat.sampler.sample import Sample
-from mentat.utils import mentat_dir_path
+from amigo.llm_api_handler import count_tokens, prompt_tokens
+from amigo.sampler.sample import Sample
+from amigo.utils import amigo_dir_path
 
 # benchmarks is not automatically included in path
 benchamrks_dir_path = Path(__file__).resolve().parent.parent.parent / "benchmarks"
@@ -35,7 +35,7 @@ def warn(msg: Any):
     print(f"\033[93m[WARNING] {msg}\033[0m")
 
 
-SAMPLES_DIR = mentat_dir_path / "samples"
+SAMPLES_DIR = amigo_dir_path / "samples"
 os.makedirs(SAMPLES_DIR, exist_ok=True)
 
 
@@ -171,7 +171,7 @@ async def main():
     elif args.finetune:
         # Dump all logs into a .jsonl file
         timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-        fname = mentat_dir_path / f"finetune_examples_{timestamp}.jsonl"
+        fname = amigo_dir_path / f"finetune_examples_{timestamp}.jsonl"
         tokens = 0
         with open(fname, "w") as f:
             for log in logs:

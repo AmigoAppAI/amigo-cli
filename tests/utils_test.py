@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from mentat.utils import get_relative_path
+from amigo.utils import get_relative_path
 
 
 def test_get_relative_path(temp_testbed: Path):

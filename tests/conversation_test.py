@@ -1,6 +1,6 @@
-from mentat.parsers.block_parser import BlockParser
-from mentat.parsers.replacement_parser import ReplacementParser
-from mentat.session_context import SESSION_CONTEXT
+from amigo.parsers.block_parser import BlockParser
+from amigo.parsers.replacement_parser import ReplacementParser
+from amigo.session_context import SESSION_CONTEXT
 
 
 def test_midconveration_parser_change(mock_call_llm_api):

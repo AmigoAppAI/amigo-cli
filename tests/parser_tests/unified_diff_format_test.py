@@ -3,9 +3,9 @@ from textwrap import dedent
 
 import pytest
 
-from mentat.config import Config
-from mentat.parsers.unified_diff_parser import UnifiedDiffParser
-from mentat.session import Session
+from amigo.config import Config
+from amigo.parsers.unified_diff_parser import UnifiedDiffParser
+from amigo.session import Session
 
 
 @pytest.fixture(autouse=True)

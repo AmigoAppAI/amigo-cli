@@ -16,19 +16,19 @@ Install the package from PyPI:
 
 .. code-block:: bash
 
-  python -m pip install mentat
+  python -m pip install amigo
 
 From github:
 
 .. code-block:: bash
 
-  python -m pip install git+https://github.com/AbanteAI/mentat.git
+  python -m pip install git+https://github.com/AmigoAppAI/amigo-cli.git
 
 Or via brew:
 
 .. code-block:: bash
 
-  brew install mentat
+  brew install amigo
 
 Extras
 ~~~~~~
@@ -62,10 +62,10 @@ Ubuntu:
 Basic Usage
 -----------
 
-Start mentat with a list of files you want mentat to be able to read and edit and ask for what you want:
+Start amigo with a list of files you want amigo to be able to read and edit and ask for what you want:
 
 .. code-block:: bash
 
-  mentat file1 file2 file3
+  amigo file1 file2 file3
 
-You can add and remove files from context in a session with the :code:`/include` and :code:`/exclude` commands. For more on context see :ref:`context`. For a list of all commands see :ref:`commands` or enter :code:`/help` in a mentat session.
+You can add and remove files from context in a session with the :code:`/include` and :code:`/exclude` commands. For more on context see :ref:`context`. For a list of all commands see :ref:`commands` or enter :code:`/help` in a amigo session.

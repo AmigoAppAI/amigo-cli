@@ -1,10 +1,10 @@
 Python Client
 =============
 
-mentat.python\_client.client module
+amigo.python\_client.client module
 -----------------------------------
 
-.. automodule:: mentat.python_client.client
+.. automodule:: amigo.python_client.client
    :members:
    :undoc-members:
 

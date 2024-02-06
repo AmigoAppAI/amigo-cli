@@ -1,6 +1,6 @@
 [tool.isort]
 profile = "black"
-known_first_party = "mentat"
+known_first_party = "amigo"
 skip = ["vscode/bundled", "benchmarks/benchmark_repos", "testbed/exercism-python"]
 
 [tool.ruff]

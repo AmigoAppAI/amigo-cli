@@ -10,11 +10,11 @@ with open(readme_path, "r", encoding="utf-8") as f:
 
 
 setup(
-    name="mentat",
+    name="amigo",
     version="1.0.9",
     python_requires=">=3.10",
     packages=find_packages(
-        include=["mentat", "mentat.*", "benchmarks", "benchmarks.*"]
+        include=["amigo", "amigo.*", "benchmarks", "benchmarks.*"]
     ),
     install_requires=[
         str(r)
@@ -24,8 +24,8 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "mentat=mentat.terminal.client:run_cli",
-            "mentat-daemon=mentat.daemon:main",
+            "amigo=amigo.terminal.client:run_cli",
+            "amigo-daemon=amigo.daemon:main",
         ],
     },
     description="AI coding assistant on your command line",

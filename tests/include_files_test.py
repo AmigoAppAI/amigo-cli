@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from mentat.errors import PathValidationError
-from mentat.include_files import (
+from amigo.errors import PathValidationError
+from amigo.include_files import (
     is_interval_path,
     validate_and_format_path,
     validate_file_interval_path,

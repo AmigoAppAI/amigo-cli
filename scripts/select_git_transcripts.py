@@ -4,7 +4,7 @@ import json
 import os
 from pathlib import Path
 
-from mentat.llm_api import count_tokens, model_context_size
+from amigo.llm_api import count_tokens, model_context_size
 
 
 def select_transcripts(
@@ -50,7 +50,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--file",
         type=str,
-        default="repos/mentat/commit_information.json",
+        default="repos/amigo/commit_information.json",
         help="The commit information file to convert to transcripts",
     )
     parser.add_argument(

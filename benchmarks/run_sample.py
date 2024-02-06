@@ -1,18 +1,18 @@
 from pathlib import Path
 from typing import Any
 
-from mentat import Mentat
-from mentat.errors import SampleError
-from mentat.git_handler import get_git_diff
-from mentat.parsers.git_parser import GitParser
-from mentat.sampler.sample import Sample
-from mentat.sampler.utils import get_active_snapshot_commit, setup_repo
-from mentat.session_context import SESSION_CONTEXT
-from mentat.utils import convert_string_to_asynciter
+from amigo import Amigo
+from amigo.errors import SampleError
+from amigo.git_handler import get_git_diff
+from amigo.parsers.git_parser import GitParser
+from amigo.sampler.sample import Sample
+from amigo.sampler.utils import get_active_snapshot_commit, setup_repo
+from amigo.session_context import SESSION_CONTEXT
+from amigo.utils import convert_string_to_asynciter
 
 
 async def run_sample(sample: Sample, cwd: Path | str | None = None) -> dict[str, Any]:
-    """Run a sample using Mentat and return the resulting diff"""
+    """Run a sample using Amigo and return the resulting diff"""
 
     repo = setup_repo(
         url=sample.repo,
@@ -30,8 +30,8 @@ async def run_sample(sample: Sample, cwd: Path | str | None = None) -> dict[str,
     paths = list[Path]()
     for a in sample.context:
         paths.append(Path(a))
-    mentat = Mentat(cwd=cwd, paths=paths)
-    await mentat.startup()
+    amigo = Amigo(cwd=cwd, paths=paths)
+    await amigo.startup()
     session_context = SESSION_CONTEXT.get()
     conversation = session_context.conversation
     cost_tracker = session_context.cost_tracker
@@ -49,8 +49,8 @@ async def run_sample(sample: Sample, cwd: Path | str | None = None) -> dict[str,
             conversation.add_model_message(content, [], parsed_llm_response)
         else:
             raise SampleError(f"Invalid role found in message_history: {msg['role']}")
-    await mentat.call_mentat_auto_accept(sample.message_prompt)
-    await mentat.shutdown()
+    await amigo.call_amigo_auto_accept(sample.message_prompt)
+    await amigo.shutdown()
 
     # Get the diff between pre- and post-edit
     transcript_messages = conversation.literal_messages.copy()

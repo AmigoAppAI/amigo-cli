@@ -1,8 +1,8 @@
 from datetime import datetime
 from uuid import uuid4
 
-from mentat.session_stream import StreamMessage, StreamMessageSource
-from mentat.terminal.loading import LoadingHandler
+from amigo.session_stream import StreamMessage, StreamMessageSource
+from amigo.terminal.loading import LoadingHandler
 
 
 class MockTqdm:
@@ -26,7 +26,7 @@ class MockTqdm:
 
 def test_loading_handler(mocker):
     mock_tqdm = MockTqdm("")
-    tqdm_mock = mocker.patch("mentat.terminal.loading.tqdm")
+    tqdm_mock = mocker.patch("amigo.terminal.loading.tqdm")
     tqdm_mock.return_value = mock_tqdm
     lh = LoadingHandler()
 

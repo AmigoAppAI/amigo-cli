@@ -1,12 +1,12 @@
 from pathlib import Path
 
-from mentat.errors import SampleError
-from mentat.parsers.git_parser import GitParser
-from mentat.python_client.client import PythonClient
-from mentat.sampler.sample import Sample
-from mentat.sampler.utils import setup_repo
-from mentat.session_context import SESSION_CONTEXT
-from mentat.utils import convert_string_to_asynciter
+from amigo.errors import SampleError
+from amigo.parsers.git_parser import GitParser
+from amigo.python_client.client import PythonClient
+from amigo.sampler.sample import Sample
+from amigo.sampler.utils import setup_repo
+from amigo.session_context import SESSION_CONTEXT
+from amigo.utils import convert_string_to_asynciter
 
 
 async def generate_finetune(

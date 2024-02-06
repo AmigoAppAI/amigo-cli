@@ -1,6 +1,6 @@
 import pytest
 
-from mentat.parsers.file_edit import FileEdit, Replacement
+from amigo.parsers.file_edit import FileEdit, Replacement
 
 # Since file creation, deletion, and renaming is almost entirely handled in
 # the CodeFileManager, no need to test that here

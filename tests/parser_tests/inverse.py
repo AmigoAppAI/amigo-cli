@@ -2,9 +2,9 @@ import os
 from pathlib import Path
 from textwrap import dedent
 
-from mentat.parsers.file_edit import FileEdit, Replacement
-from mentat.parsers.parser import ParsedLLMResponse
-from mentat.utils import convert_string_to_asynciter
+from amigo.parsers.file_edit import FileEdit, Replacement
+from amigo.parsers.parser import ParsedLLMResponse
+from amigo.utils import convert_string_to_asynciter
 
 
 async def verify_inverse(parser):

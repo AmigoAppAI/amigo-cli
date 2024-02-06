@@ -4,9 +4,9 @@ from textwrap import dedent
 
 import pytest
 
-import mentat.config
-from mentat.config import Config, config_file_name
-from mentat.parsers.replacement_parser import ReplacementParser
+import amigo.config
+from amigo.config import Config, config_file_name
+from amigo.parsers.replacement_parser import ReplacementParser
 
 
 @pytest.fixture
@@ -47,8 +47,8 @@ async def test_config_creation():
             "input_style": [[ "project", "yes" ]]
         }"""))
 
-    mentat.config.user_config_path = Path(str(config_file_name) + "1")
-    with open(mentat.config.user_config_path, "w") as user_config_file:
+    amigo.config.user_config_path = Path(str(config_file_name) + "1")
+    with open(amigo.config.user_config_path, "w") as user_config_file:
         user_config_file.write(dedent("""\
         {
             "model": "test",
@@ -76,8 +76,8 @@ async def test_invalid_config(mock_config_errors):
             "format": "I have a trailing comma",
         }"""))
 
-    mentat.config.user_config_path = Path(str(config_file_name) + "1")
-    with open(mentat.config.user_config_path, "w") as user_config_file:
+    amigo.config.user_config_path = Path(str(config_file_name) + "1")
+    with open(amigo.config.user_config_path, "w") as user_config_file:
         user_config_file.write(dedent("""\
         {
             "model": "test",
@@ -87,7 +87,7 @@ async def test_invalid_config(mock_config_errors):
     config = Config.create(cwd=Path.cwd())
     assert (
         mock_config_errors[0]
-        == "Warning: Config .mentat_config.json1 contains unrecognized setting: foobar"
+        == "Warning: Config .amigo_config.json1 contains unrecognized setting: foobar"
     )
     assert (
         "contains invalid json; ignoring user configuration file"

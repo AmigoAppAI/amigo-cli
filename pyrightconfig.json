@@ -1,5 +1,5 @@
 {
-    "include": ["mentat"],
+    "include": ["amigo"],
     "ignore": [
         "testbed",
         "tests",

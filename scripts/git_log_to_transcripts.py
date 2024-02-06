@@ -12,13 +12,13 @@ from git import Repo
 from openai import OpenAI
 
 from benchmarks.context_benchmark import MockStream, select_features_for_benchmark
-from mentat.code_context import CodeContext
-from mentat.code_file_manager import CodeFileManager
-from mentat.config import Config
-from mentat.llm_api import CostTracker, count_tokens
-from mentat.parsers.git_parser import GitParser
-from mentat.sampler.utils import clone_repo
-from mentat.session_context import SESSION_CONTEXT, SessionContext
+from amigo.code_context import CodeContext
+from amigo.code_file_manager import CodeFileManager
+from amigo.config import Config
+from amigo.llm_api import CostTracker, count_tokens
+from amigo.parsers.git_parser import GitParser
+from amigo.sampler.utils import clone_repo
+from amigo.session_context import SESSION_CONTEXT, SessionContext
 
 system_prompt = dedent("""\
         You are part of an automated system for making synthetic data. You will be given the \
@@ -193,7 +193,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--repo",
         type=str,
-        default="http://github.com/AbanteAI/mentat",
+        default="http://github.com/AmigoAppAI/amigo-cli",
         help="The repo to convert to transcripts",
     )
     parser.add_argument(

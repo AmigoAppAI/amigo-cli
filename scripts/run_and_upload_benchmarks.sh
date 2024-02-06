@@ -12,7 +12,7 @@ TIMESTAMP=$(date +%Y%m%d%H%M%S)
     --language javascript
 
 SUMMARY=$(jq '.summary_string' benchmarks/benchmark_repos/exercism-javascript/results.json)
-BUCKET="benchmarks.mentat.ai"
+BUCKET="benchmarks.amigo.ai"
 
 # Upload results to S3
 aws s3 cp benchmarks/benchmark_repos/exercism-javascript/results.html s3://${BUCKET}/exercism-javascript-results-${TIMESTAMP}.html

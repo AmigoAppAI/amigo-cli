@@ -3,9 +3,9 @@ from textwrap import dedent
 
 import pytest
 
-from mentat.config import Config
-from mentat.parsers.replacement_parser import ReplacementParser
-from mentat.session import Session
+from amigo.config import Config
+from amigo.parsers.replacement_parser import ReplacementParser
+from amigo.session import Session
 
 
 @pytest.fixture(autouse=True)

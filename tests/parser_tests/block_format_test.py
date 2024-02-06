@@ -4,9 +4,9 @@ from textwrap import dedent
 
 import pytest
 
-from mentat.config import Config
-from mentat.parsers.block_parser import BlockParser
-from mentat.session import Session
+from amigo.config import Config
+from amigo.parsers.block_parser import BlockParser
+from amigo.session import Session
 from tests.parser_tests.inverse import verify_inverse
 
 

@@ -2,8 +2,8 @@ from textwrap import dedent
 
 import pytest
 
-from mentat.parsers.parser import ParsedLLMResponse
-from mentat.parsers.parser_map import parser_map
+from amigo.parsers.parser import ParsedLLMResponse
+from amigo.parsers.parser_map import parser_map
 
 
 @pytest.mark.asyncio

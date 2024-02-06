@@ -11,8 +11,8 @@ from git import Repo
 from openai import OpenAI
 
 from benchmarks.arg_parser import common_benchmark_parser
-from mentat import Mentat
-from mentat.sampler.utils import clone_repo
+from amigo import Amigo
+from amigo.sampler.utils import clone_repo
 
 
 def load_tests(benchmarks_dir):
@@ -103,22 +103,22 @@ async def test_edit_quality(
         start_commit = repo.commit()
         repo.git.checkout(test["commit"] + "^1")
 
-        client = Mentat(
+        client = Amigo(
             paths=test["expected_features"],
         )
 
         await client.startup()
-        await client.call_mentat_auto_accept(test["prompt"])
+        await client.call_amigo_auto_accept(test["prompt"])
         await client.wait_for_edit_completion()
-        await client.call_mentat("/commit")
+        await client.call_amigo("/commit")
         # I don't think this should be necessary but without it the diff isn't
         # ready in the next line.
-        await client.call_mentat("q")
+        await client.call_amigo("q")
 
         diff = subprocess.check_output(["git", "show"]).decode("utf-8")
         evaluation = evaluate_diff(diff)
 
-        print("Mentat produced the following diff:")
+        print("Amigo produced the following diff:")
         print(diff)
         print("And GPT rates it in the following way:")
         print(evaluation)

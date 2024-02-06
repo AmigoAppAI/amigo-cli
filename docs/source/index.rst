@@ -1,9 +1,9 @@
-.. Mentat documentation master file, created by
+.. Amigo documentation master file, created by
    sphinx-quickstart on Mon Dec 18 14:03:42 2023.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Mentat's documentation!
+Welcome to Amigo's documentation!
 ==================================
 
 .. toctree::

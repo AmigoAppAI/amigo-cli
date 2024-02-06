@@ -4,12 +4,12 @@ from textwrap import dedent
 
 import pytest
 
-from mentat.code_feature import CodeFeature
-from mentat.command.command import Command, InvalidCommand
-from mentat.command.commands.context import ContextCommand
-from mentat.command.commands.help import HelpCommand
-from mentat.session import Session
-from mentat.session_context import SESSION_CONTEXT
+from amigo.code_feature import CodeFeature
+from amigo.command.command import Command, InvalidCommand
+from amigo.command.commands.context import ContextCommand
+from amigo.command.commands.help import HelpCommand
+from amigo.session import Session
+from amigo.session_context import SESSION_CONTEXT
 
 
 def test_invalid_command():
@@ -268,7 +268,7 @@ async def test_search_command(
     )
     mock_score = 1.0
     mocker.patch(
-        "mentat.code_context.CodeContext.search",
+        "amigo.code_context.CodeContext.search",
         return_value=[(mock_feature, mock_score)],
     )
     session = Session(cwd=Path.cwd())

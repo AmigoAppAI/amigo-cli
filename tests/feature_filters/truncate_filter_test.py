@@ -1,7 +1,7 @@
 import pytest
 
-from mentat.code_feature import CodeFeature
-from mentat.feature_filters.truncate_filter import TruncateFilter
+from amigo.code_feature import CodeFeature
+from amigo.feature_filters.truncate_filter import TruncateFilter
 
 
 @pytest.mark.asyncio

@@ -10,18 +10,18 @@ from openai.types.chat import (
 )
 
 from benchmarks.run_sample import run_sample
-from mentat import Mentat
-from mentat.conversation import MentatAssistantMessageParam
-from mentat.errors import SampleError
-from mentat.git_handler import get_git_diff
-from mentat.parsers.block_parser import BlockParser
-from mentat.parsers.git_parser import GitParser
-from mentat.parsers.parser import ParsedLLMResponse
-from mentat.sampler import __version__
-from mentat.sampler.sample import Sample
-from mentat.sampler.sampler import Sampler
-from mentat.sampler.utils import get_active_snapshot_commit
-from mentat.session import Session
+from amigo import Amigo
+from amigo.conversation import AmigoAssistantMessageParam
+from amigo.errors import SampleError
+from amigo.git_handler import get_git_diff
+from amigo.parsers.block_parser import BlockParser
+from amigo.parsers.git_parser import GitParser
+from amigo.parsers.parser import ParsedLLMResponse
+from amigo.sampler import __version__
+from amigo.sampler.sample import Sample
+from amigo.sampler.sampler import Sampler
+from amigo.sampler.utils import get_active_snapshot_commit
+from amigo.session import Session
 
 
 def remove_checksums(text):
@@ -40,7 +40,7 @@ async def test_sample_from_context(
     mock_session_context.config.sampler = True
 
     mocker.patch(
-        "mentat.conversation.Conversation.get_messages",
+        "amigo.conversation.Conversation.get_messages",
         return_value=[
             ChatCompletionSystemMessageParam(
                 content="test_system_content",
@@ -50,7 +50,7 @@ async def test_sample_from_context(
                 content="test_user_content",
                 role="user",
             ),
-            MentatAssistantMessageParam(
+            AmigoAssistantMessageParam(
                 parsed_llm_response=ParsedLLMResponse("", "test_assistant_content", []),
                 content="test_assistant_content",
                 role="assistant",
@@ -175,7 +175,7 @@ test_sample = {
     "description": "",
     "id": "bc62d3903f4e4945a309ea0115d16702",
     "parent_id": "",
-    "repo": "http://github.com/AbanteAI/mentat",
+    "repo": "http://github.com/AmigoAppAI/amigo-cli",
     "merge_base": "f5057f1658b9c7edb5e45a2fa8c2198ded5b5c00",
     "diff_merge_base": "",
     "diff_active": "",
@@ -185,10 +185,10 @@ test_sample = {
         "I will add a new sha1 function to the `utils.py` file.\n\nSteps:\n1."
         " Add the sha1 function to `utils.py`."
     ),
-    "context": ["mentat/utils.py"],
+    "context": ["amigo/utils.py"],
     "diff_edit": (
-        "diff --git a/mentat/utils.py b/mentat/utils.py\nindex 46c3d7f..948b7f9"
-        " 100644\n--- a/mentat/utils.py\n+++ b/mentat/utils.py\n@@ -35,2 +35,6 @@ def"
+        "diff --git a/amigo/utils.py b/amigo/utils.py\nindex 46c3d7f..948b7f9"
+        " 100644\n--- a/amigo/utils.py\n+++ b/amigo/utils.py\n@@ -35,2 +35,6 @@ def"
         " sha256(data: str) -> str:\n \n+def sha1(data: str) -> str:\n+    return"
         ' hashlib.sha1(data.encode("utf-8")).hexdigest()\n+\n+\n async def'
         " run_subprocess_async(*args: str) -> str:\n"
@@ -203,10 +203,10 @@ async def test_sample_eval(mock_call_llm_api):
     parsedLLMResponse = GitParser().parse_llm_response(test_sample["diff_edit"])
     edit_message = BlockParser().file_edits_to_llm_message(parsedLLMResponse)
     mock_call_llm_api.set_streamed_values([dedent(f"""\
-        I will add a new helper function called `sha1` to the `mentat/utils.py` file.
+        I will add a new helper function called `sha1` to the `amigo/utils.py` file.
         
         Steps:
-        1. Add the `sha1` function to `mentat/utils.py`.{edit_message}""")])
+        1. Add the `sha1` function to `amigo/utils.py`.{edit_message}""")])
 
     sample = Sample(**test_sample)
     result = await run_sample(sample)
@@ -380,11 +380,11 @@ async def test_sampler_integration(
         [f"I will make the following edits. {llm_response}"]
     )
 
-    # Generate a sample using Mentat
-    client = Mentat(cwd=temp_testbed, paths=["."])
+    # Generate a sample using Amigo
+    client = Amigo(cwd=temp_testbed, paths=["."])
     await client.startup()
     client.session.ctx.config.sampler = True
-    await client.call_mentat_auto_accept(dedent("""\
+    await client.call_amigo_auto_accept(dedent("""\
         Make the following changes to "multifile_calculator/operations.py":
         1. Add "# Inserted line 2" as the first line
         2. Add "# Replaced Line 2" to the end of the 5th line
@@ -397,16 +397,16 @@ async def test_sampler_integration(
 
     # Remove all included files; rely on the diff to include them
     client.session.ctx.code_context.include_files = {}
-    await client.call_mentat(f"/sample {temp_testbed.as_posix()}")
-    await client.call_mentat(merge_base)
-    await client.call_mentat("test_url")
-    await client.call_mentat("test_title")
-    await client.call_mentat("test_description")
-    await client.call_mentat("test_test_command")
-    await client.call_mentat("q")
+    await client.call_amigo(f"/sample {temp_testbed.as_posix()}")
+    await client.call_amigo(merge_base)
+    await client.call_amigo("test_url")
+    await client.call_amigo("test_title")
+    await client.call_amigo("test_description")
+    await client.call_amigo("test_test_command")
+    await client.call_amigo("q")
     await client.shutdown()
 
-    # Evaluate the sample using Mentat
+    # Evaluate the sample using Amigo
     sample_files = list(temp_testbed.glob("sample_*.json"))
     assert len(sample_files) == 1
     sample = Sample.load(sample_files[0])

@@ -15,12 +15,12 @@ from benchmarks.arg_parser import common_benchmark_parser
 from benchmarks.benchmark_result import BenchmarkResult
 from benchmarks.benchmark_result_summary import BenchmarkResultSummary
 from benchmarks.run_sample import run_sample
-from mentat.config import Config
-from mentat.git_handler import get_git_diff
-from mentat.llm_api_handler import model_context_size, prompt_tokens
-from mentat.sampler.sample import Sample
-from mentat.sampler.utils import setup_repo
-from mentat.session_context import SESSION_CONTEXT
+from amigo.config import Config
+from amigo.git_handler import get_git_diff
+from amigo.llm_api_handler import model_context_size, prompt_tokens
+from amigo.sampler.sample import Sample
+from amigo.sampler.utils import setup_repo
+from amigo.session_context import SESSION_CONTEXT
 
 
 def git_diff_from_comparison_commit(sample: Sample, comparison_commit: str) -> str:

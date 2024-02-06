@@ -3,7 +3,7 @@ from io import BytesIO
 
 from PIL import Image
 
-from mentat.llm_api_handler import prompt_tokens
+from amigo.llm_api_handler import prompt_tokens
 
 
 def test_prompt_tokens():

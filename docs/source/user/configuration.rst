@@ -1,7 +1,7 @@
 Configuration
 =============
 
-Mentat has a number of customizable settings. They can be changed globally by setting in :code:`~/.mentat/.mentat_config.json` or on a per project level by setting in :code:`.mentat_config.json`. They can also be set as a command line flag, see :ref:`cli_args`, note underscores become dashes on the cli. Finally they can be changed mid-session with the :code:`/config` command.
+Amigo has a number of customizable settings. They can be changed globally by setting in :code:`~/.amigo/.amigo_config.json` or on a per project level by setting in :code:`.amigo_config.json`. They can also be set as a command line flag, see :ref:`cli_args`, note underscores become dashes on the cli. Finally they can be changed mid-session with the :code:`/config` command.
 
 The following is a partial list of customizable settings.
 
@@ -45,7 +45,7 @@ The model used for making embeddings.
 file_exclude_glob_list
 ^^^^^^^^^^^^^^^^^^^^^^
 
-List of `glob patterns <https://docs.python.org/3/library/glob.html>`_ to exclude files from being read/edited by Mentat. These take effect whenever you provide Mentat with a directory as an argument. Mentat will add all files in the directory that are not in your :code:`.gitignore` and do not match these glob patterns. Glob patterns are interpreted from the git root location. If you wanted to exclude all files ending in :code:`.py`, the pattern to use would be :code:`**/*.py` rather than :code:`*.py`. Here is an example that would exclude all hidden directories and files:
+List of `glob patterns <https://docs.python.org/3/library/glob.html>`_ to exclude files from being read/edited by Amigo. These take effect whenever you provide Amigo with a directory as an argument. Amigo will add all files in the directory that are not in your :code:`.gitignore` and do not match these glob patterns. Glob patterns are interpreted from the git root location. If you wanted to exclude all files ending in :code:`.py`, the pattern to use would be :code:`**/*.py` rather than :code:`*.py`. Here is an example that would exclude all hidden directories and files:
 
 .. code-block:: json
 
@@ -56,7 +56,7 @@ List of `glob patterns <https://docs.python.org/3/library/glob.html>`_ to exclud
 input_style
 ^^^^^^^^^^^
 
-A list of key-value pairs defining a custom `Pygment Style <https://pygments.org/docs/styledevelopment/>`_ to style the Mentat prompt.
+A list of key-value pairs defining a custom `Pygment Style <https://pygments.org/docs/styledevelopment/>`_ to style the Amigo prompt.
 
 .. code-block:: json
 
@@ -80,7 +80,7 @@ A list of key-value pairs defining a custom `Pygment Style <https://pygments.org
 parser
 ^^^^^^
 
-Mentat is able to edit files by parsing a specific format that the model is told to follow. We are always working to improve the format we use, and have multiple formats available. Although we expect the default format to perform the best, you can test out other formats using the configuration.
+Amigo is able to edit files by parsing a specific format that the model is told to follow. We are always working to improve the format we use, and have multiple formats available. Although we expect the default format to perform the best, you can test out other formats using the configuration.
 
 .. code-block:: json
 
@@ -90,6 +90,6 @@ Mentat is able to edit files by parsing a specific format that the model is told
 
 Available formats:
 
-- `block <https://github.com/AbanteAI/mentat/blob/main/mentat/parsers/block_parser.py>`_
-- `replacement <https://github.com/AbanteAI/mentat/blob/main/mentat/parsers/replacement_parser.py>`_
-- `unified-diff <https://github.com/AbanteAI/mentat/blob/main/mentat/parsers/unified_diff_parser.py>`_
+- `block <https://github.com/AmigoAppAI/amigo-cli/blob/main/amigo/parsers/block_parser.py>`_
+- `replacement <https://github.com/AmigoAppAI/amigo-cli/blob/main/amigo/parsers/replacement_parser.py>`_
+- `unified-diff <https://github.com/AmigoAppAI/amigo-cli/blob/main/amigo/parsers/unified_diff_parser.py>`_

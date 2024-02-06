@@ -25,7 +25,7 @@ def main(run=False, threshold=0.75, count=1):
 
     if run:
         for _ in range(count):
-            os.environ["MENTAT_BENCHMARKS_RUNNING"] = "true"
+            os.environ["AMIGO_BENCHMARKS_RUNNING"] = "true"
             pytest.main(
                 [
                     benchmark_location,
@@ -34,7 +34,7 @@ def main(run=False, threshold=0.75, count=1):
                     benchmark_log_location,
                 ]
             )
-            os.environ["MENTAT_BENCHMARKS_RUNNING"] = "false"
+            os.environ["AMIGO_BENCHMARKS_RUNNING"] = "false"
             print()
             nodes = []
             with open(benchmark_log_location, "r") as result_file:

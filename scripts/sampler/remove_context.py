@@ -9,11 +9,11 @@ from openai.types.chat import (
     ChatCompletionUserMessageParam,
 )
 
-from mentat.code_feature import CodeFeature, get_code_message_from_features
-from mentat.errors import SampleError
-from mentat.python_client.client import PythonClient
-from mentat.sampler.sample import Sample
-from mentat.sampler.utils import setup_repo
+from amigo.code_feature import CodeFeature, get_code_message_from_features
+from amigo.errors import SampleError
+from amigo.python_client.client import PythonClient
+from amigo.sampler.sample import Sample
+from amigo.sampler.utils import setup_repo
 
 
 async def remove_context(sample) -> Sample:

@@ -124,7 +124,7 @@ class BenchmarkResultSummary:
     def render_results(self):
         env = Environment(
             loader=FileSystemLoader(
-                os.path.join(os.path.dirname(__file__), "../mentat/resources/templates")
+                os.path.join(os.path.dirname(__file__), "../amigo/resources/templates")
             ),
             autoescape=select_autoescape(["html", "xml"]),
         )

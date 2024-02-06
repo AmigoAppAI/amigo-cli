@@ -5,12 +5,12 @@ import json
 from pathlib import Path
 from unittest.mock import AsyncMock
 
-from mentat.code_file_manager import CodeFileManager
-from mentat.parsers.git_parser import GitParser
-from mentat.parsers.parser import Parser
-from mentat.parsers.parser_map import parser_map
-from mentat.session_context import SESSION_CONTEXT, SessionContext
-from mentat.utils import convert_string_to_asynciter
+from amigo.code_file_manager import CodeFileManager
+from amigo.parsers.git_parser import GitParser
+from amigo.parsers.parser import Parser
+from amigo.parsers.parser_map import parser_map
+from amigo.session_context import SESSION_CONTEXT, SessionContext
+from amigo.utils import convert_string_to_asynciter
 
 parser_map["git"] = GitParser()
 

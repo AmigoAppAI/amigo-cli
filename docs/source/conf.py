@@ -8,13 +8,13 @@ import sys
 
 # AXJ, Version
 sys.path.insert(0, os.path.abspath("../.."))
-from mentat import __version__  # noqa: E402
+from amigo import __version__  # noqa: E402
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "Mentat"
-copyright = "2024, Abante AI"
+project = "Amigo"
+copyright = "2024, AmigoAI"
 author = "Multiple Authors"
 release = __version__
 

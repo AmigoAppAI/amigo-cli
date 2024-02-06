@@ -2,8 +2,8 @@ import asyncio
 
 import pytest
 
-from mentat.session_context import SESSION_CONTEXT
-from mentat.session_input import ask_yes_no
+from amigo.session_context import SESSION_CONTEXT
+from amigo.session_input import ask_yes_no
 
 
 @pytest.mark.asyncio

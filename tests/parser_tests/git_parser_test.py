@@ -5,10 +5,10 @@ from textwrap import dedent
 import pytest
 from git import Repo
 
-from mentat.parsers.file_edit import FileEdit, Replacement
-from mentat.parsers.git_parser import GitParser
-from mentat.parsers.parser import ParsedLLMResponse
-from mentat.utils import convert_string_to_asynciter
+from amigo.parsers.file_edit import FileEdit, Replacement
+from amigo.parsers.git_parser import GitParser
+from amigo.parsers.parser import ParsedLLMResponse
+from amigo.utils import convert_string_to_asynciter
 
 
 def clean_diff(diff):

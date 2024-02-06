@@ -6,7 +6,7 @@ In addition to the standard chat interface there are a number of commands availa
 /agent
 ------
 
-Toggle agent mode. In agent mode Mentat will automatically make changes and run commands.
+Toggle agent mode. In agent mode Amigo will automatically make changes and run commands.
 
 /clear
 ------
@@ -55,7 +55,7 @@ Run a shell command and put its output in context. For example, run a python scr
 
 :code:`\run python my_script.py arg1 arg2`
 
-This command is very useful to avoid copy pasting. Instead of pasting the test output into mentat and asking mentat to fix it, simply run the test in mentat.
+This command is very useful to avoid copy pasting. Instead of pasting the test output into amigo and asking amigo to fix it, simply run the test in amigo.
 
 /screenshot [path|url]
 ----------------------
@@ -75,12 +75,12 @@ Start voice to text. Uses whisper via the openai api.
 /undo
 -----
 
-Undo the last change made by Mentat.
+Undo the last change made by Amigo.
 
 /undo-all
 ---------
 
-Undo all changes made by Mentat.
+Undo all changes made by Amigo.
 
 /viewer
 -------

@@ -10,10 +10,10 @@ from typing import Any
 from openai import AsyncOpenAI
 
 from benchmarks.context_benchmark import test_code_context_performance
-from mentat.errors import ModelError
-from mentat.prompts.prompts import read_prompt
+from amigo.errors import ModelError
+from amigo.prompts.prompts import read_prompt
 
-prompts_dir = Path(__file__).parent.parent / "mentat/resources/prompts"
+prompts_dir = Path(__file__).parent.parent / "amigo/resources/prompts"
 
 
 async def evaluate_prompt(prompt: str) -> dict[str, dict[str, float]]:
